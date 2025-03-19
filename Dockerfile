@@ -1,8 +1,18 @@
-# Use the official Nginx image as the base
-FROM nginx:alpine
+# Use official Node.js image
+FROM node:18-alpine
 
-# Copy our HTML file to the default Nginx public directory
-COPY index.html /usr/share/nginx/html/
+# Set working directory
+WORKDIR /app
 
-# The command to run Nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+# Copy package files and install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy the rest of the application files
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["node", "main.js"]
