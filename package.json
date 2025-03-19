@@ -1,0 +1,12 @@
+{
+  "name": "node-nginx-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js server with Express and Docker",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
